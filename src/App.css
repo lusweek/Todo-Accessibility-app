@@ -1,0 +1,139 @@
+/* --------------------- GLOBAL ---------------------------- */
+
+body{
+  font-family:  Calibri, Helvetica, Arial, Verdana, 'Times New Roman', Times, serif;
+}
+
+*:focus{
+  color: black;
+  text-decoration: underline;
+  border: solid black 2px;
+}
+
+button:focus, label:focus, input:focus{
+  border: solid yellow 4px;
+  text-decoration: none;
+}
+
+label:focus, a:focus{
+  background-color: yellow !important;
+}
+
+button:focus{
+  background-color: yellow !important;
+}
+
+.margin-top{
+  margin-top: 70px ;
+}
+
+.component-section{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.h1-title{
+margin-bottom: 10px;
+}
+
+.h2-title{
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 100vw;
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link-btn{
+  border: solid 1px black;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 40%;
+  background-color: white;
+
+}
+
+.link-text{
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.line{
+  width: 80vw;
+  height: 1px;
+  background-color: gray;
+  margin: 50px;
+}
+
+.checkbox-h1{
+  margin: 2px;
+}
+
+
+.nav-selected{
+  background-color: black;
+  border: solid white 2px;
+  color: white;
+}
+
+.nav-not-selected{
+  background-color: white;
+  border: solid black 1px;
+  color: black;
+}
+
+
+/* --------------------------------- TODO SECTION ----------------------------------- */
+
+.new-todo-wrapper{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin: 30px 5px 5px 5px;
+}
+
+.new-todo-wrapper label{
+  font-weight: 600;
+}
+
+#add-btn{
+  background-color: #00FF0A;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.task-box{
+  padding: 4px 30px 4px 4px;
+  display: flex;
+  align-items: center;
+  border: solid black 2px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.task-box input{
+  height: 30px;
+  width: 30px;
+  margin-right: 30px;
+}
