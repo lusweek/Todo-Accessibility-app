@@ -1,7 +1,115 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import blindfold_img from '../img/blindfolded-low-res.webp'
 
 function About() {
+
+  const [fName, setFname] = useState('')
+  const [SName, setSname] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+
+    console.log(fName, SName, email, phone, message);
+
+  }, [fName, SName, email, phone, message])
+
+  useEffect(() => {
+
+    const Fname = document.getElementById('Fname');
+    const Sname = document.getElementById('Sname');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const message = document.getElementById('message');
+    const form = document.getElementById('form');
+
+    const FnameError = document.getElementById('FnameError');
+    const LastNameError = document.getElementById('SnameError');
+    const emailError = document.getElementById('emailError');
+    const PhoneError = document.getElementById('phoneError');
+    const MessageError = document.getElementById('messageError');
+
+
+    form.addEventListener('submit', (e) => {
+      let NameMessage = []
+      let LastNameMessage = []
+      let EmailMessage = []
+      let PhoneMessages = []
+      let MessageMessage = []
+
+      console.log('submit körs');
+
+// first name error
+      if (Fname.value === '' || Fname.value == null){
+        NameMessage.push('Name is required')
+      }
+      if (NameMessage.length > 0) {
+        e.preventDefault()
+        FnameError.style.display='block'
+        FnameError.innerHTML = NameMessage.join(', ')
+      } else {
+        FnameError.style.display='none'
+      }
+
+
+// second mane error
+      if (Sname.value === '' || Sname.value == null){
+        LastNameMessage.push('Last name is required')
+      }
+      if (LastNameMessage.length > 0) {
+        e.preventDefault()
+        LastNameError.style.display='block'
+        LastNameError.innerHTML = LastNameMessage.join(', ')
+      } else {
+        LastNameError.style.display='none'
+      }
+
+
+// email error
+      if (email.value === '' || email.value == null){
+        EmailMessage.push('Email is required')
+      }
+      if (EmailMessage.length > 0) {
+        e.preventDefault()
+        emailError.style.display='block'
+        emailError.innerHTML = EmailMessage.join(', ')
+      } else {
+        emailError.style.display='none'
+      }
+
+// phone error
+      if (phone.value === '' || phone.value == null){
+        PhoneMessages.push('Phone number is required')
+      }
+      if (PhoneMessages.length > 0) {
+        e.preventDefault()
+        PhoneError.style.display='block'
+        PhoneError.innerHTML = PhoneMessages.join(', ')
+      } else {
+        PhoneError.style.display='none'
+      }
+
+// message error
+      if (message.value.length < 10){
+        MessageMessage.push('Message must be at least 10 characters long')
+      }
+      if (MessageMessage.length > 0) {
+        e.preventDefault()
+        MessageError.style.display='block'
+        MessageError.innerHTML = MessageMessage.join(', ')
+      } else {
+        MessageError.style.display='none'
+      }
+    
+
+})
+
+  }, [])
+
+  
+
+
   return (
    <section className='component-section'>
       <header>
@@ -33,9 +141,12 @@ function About() {
 
         <p>To create a better understanding of the difficulties visual impairment creates: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
 
-        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch video on youtube</a>
 
-        <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2 className='h2-title'>What every sighted person should know about blindness</h2>
+        
+        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch video on youtube</a>
+        
+        <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="What every sighted person should know about blindness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <div className='captions-wrapper'>
 
@@ -75,7 +186,44 @@ function About() {
 
 
       <article className='contact-article'>
+        <h1 className='h1-title'>Contact us</h1>
 
+        <form id='form' className='contact-grid'>
+          <div className='pair-wrapper'>
+            <div className='form-div'>
+                <label for="Fname">First Name*</label>
+                <input type="text" id='Fname' name='Fname' onChange={(e) => setFname(e.target.value)} />
+                <div className='error-message' id='FnameError'></div>
+              </div>
+            
+
+              <div className='form-div'>
+                <label for="Sname">Last Name*</label>
+                <input type="text" id='Sname' name='Sname' onChange={(e) => setSname(e.target.value)} />
+                <div className='error-message' id='SnameError'></div>
+              </div>
+          </div>
+         
+         <div className='pair-wrapper'>
+            <div className='form-div'>
+              <label for="email">Email*</label>
+              <input type="email" id='email' name='email' onChange={(e) => setEmail(e.target.value)} />
+              <div className='error-message' id='emailError'></div>
+            </div>
+            <div className='form-div'>
+              <label for="phone">Phone number*</label>
+              <input type="number" id='phone' name='phone' onChange={(e) => setPhone(e.target.value)} />
+              <div className='error-message' id='phoneError'></div>
+            </div>
+         </div>
+          
+          <div className='message-form-div'>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="30" rows="10" onChange={(e) => setMessage(e.target.value)}></textarea>
+            <div className='error-message' id='messageError'></div>
+          </div>
+          <button type='submit'>Send</button>
+        </form>
       </article>
 
    </section>

@@ -168,6 +168,10 @@ margin-bottom: 10px;
   border-radius: 10px;
   background-color: #FFFEDD;
   margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 630px;
 }
 
 .about-article li{
@@ -200,6 +204,60 @@ iframe{
   margin: 0 0 30px 0;
 }
 
+iframe{
+  width: 400px;
+  height: 225px;
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  row-gap: 20px;
+  max-width: 480px ;
+  margin: 60px;
+}
+
+#form input{
+  height: 25px;
+  width: 100%;
+}
+
+.pair-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-div{
+display: flex;
+flex-direction: column;
+align-items: start;
+width: 45%;
+}
+
+.message-form-div{
+  width: 100%;
+}
+
+#message{
+  width: 100%;
+}
+
+.error-message{
+left: 10px;
+align-self: center;
+border: solid black 1px;
+background-color: #ed0000;
+color: white;
+padding: 3px 8px;
+margin-top: 2px; 
+display: none;
+}
+
+
+
 /* --------------------------------- FÖR TELEFON ----------------------------- */
 
 @media screen and (max-width: 480px) {
@@ -215,6 +273,11 @@ iframe{
 
   .captions-wrapper{
     padding: 10px;
+  }
+
+  iframe{
+    width: 250px;
+    height: 145px;
   }
 
 }
