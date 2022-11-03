@@ -18,17 +18,18 @@ li{
 *:focus{
   color: black;
   text-decoration: underline;
-  border: solid black 2px;
+  border: solid black 4px;
 }
 
-button:focus, label:focus, input:focus{
-  border: solid yellow 4px;
+button:focus, input:focus{
+  border: solid rgb(87, 57, 22) 4px;
   text-decoration: none;
 }
 
 label:focus{
-  border: solid yellow 5px;
+  background-color: rgb(173, 173, 173);
 }
+
 
 a:focus{
   border: solid black 5px;
@@ -64,6 +65,7 @@ margin-bottom: 10px;
   font-size: 20px;
   font-weight: 300;
   width: 60vw;
+  max-width: 630px;
 }
 
 #navbar{

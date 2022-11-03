@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import blindfold_img from '../img/blindfolded-low-res.webp'
+import {HiExternalLink} from 'react-icons/hi'
 
-function About() {
+function About({ setFormInfo }) {
 
   const [fName, setFname] = useState('')
   const [SName, setSname] = useState('')
@@ -9,9 +10,16 @@ function About() {
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
 
+  const [fail, setFail] = useState(true)
+
+
   useEffect(() => {
 
-    console.log(fName, SName, email, phone, message);
+    if (fName.length !== 0 || SName.length !== 0 || email.length !== 0 || phone.length !== 0 || message.length !== 0) {
+      setFormInfo(true)
+    } else {
+      setFormInfo(false)
+    }
 
   }, [fName, SName, email, phone, message])
 
@@ -31,14 +39,15 @@ function About() {
     const MessageError = document.getElementById('messageError');
 
 
+
+
     form.addEventListener('submit', (e) => {
       let NameMessage = []
       let LastNameMessage = []
       let EmailMessage = []
       let PhoneMessages = []
       let MessageMessage = []
-
-      console.log('submit körs');
+      let fail = false
 
 // first name error
       if (Fname.value === '' || Fname.value == null){
@@ -48,6 +57,7 @@ function About() {
         e.preventDefault()
         FnameError.style.display='block'
         FnameError.innerHTML = NameMessage.join(', ')
+        fail = true
       } else {
         FnameError.style.display='none'
       }
@@ -61,6 +71,7 @@ function About() {
         e.preventDefault()
         LastNameError.style.display='block'
         LastNameError.innerHTML = LastNameMessage.join(', ')
+        fail = true
       } else {
         LastNameError.style.display='none'
       }
@@ -74,6 +85,7 @@ function About() {
         e.preventDefault()
         emailError.style.display='block'
         emailError.innerHTML = EmailMessage.join(', ')
+        fail = true
       } else {
         emailError.style.display='none'
       }
@@ -86,6 +98,7 @@ function About() {
         e.preventDefault()
         PhoneError.style.display='block'
         PhoneError.innerHTML = PhoneMessages.join(', ')
+        fail = true
       } else {
         PhoneError.style.display='none'
       }
@@ -98,16 +111,14 @@ function About() {
         e.preventDefault()
         MessageError.style.display='block'
         MessageError.innerHTML = MessageMessage.join(', ')
+        fail = true
       } else {
         MessageError.style.display='none'
       }
-    
-
+      
 })
 
   }, [])
-
-  
 
 
   return (
@@ -144,7 +155,7 @@ function About() {
 
         <h2 className='h2-title'>What every sighted person should know about blindness</h2>
         
-        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch video on youtube</a>
+        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch video on youtube < HiExternalLink /> </a>
         
         <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="What every sighted person should know about blindness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
