@@ -54,6 +54,13 @@ function DoneTasks() {
   }
 
 
+  const handleKeyDown = (e, index, todo) => {
+    if (e.key === "Enter") {
+      handleCheckbox(e, index, todo)
+    }
+  }
+
+
   return (
     <section className='component-section'>
       <h1 className='h1-title margin-top'>DoneTasks</h1>
@@ -65,7 +72,7 @@ function DoneTasks() {
       doneTodos.length===0 ? <h1>No done todos</h1> : 
       doneTodos.map((todo, index) => {
         return (
-          <label tabindex={0} for={`done-checkbox-${index}`} className='task-box'>
+          <label onKeyDown={(e) => handleKeyDown(e, index, todo)} tabindex={0} for={`done-checkbox-${index}`} className='task-box'>
             <input tabindex={-1} id={`done-checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" checked />
              <h1 className='checkbox-h1' id={`done-h1-${index}`}>{todo}</h1>
           </label>

@@ -73,9 +73,10 @@ function Todo() {
     } else e.preventDefault()
   }
 
-  const handleKeyDown = (e) => {
-    console.log(e);
-    console.log('yessssss okay');
+  const handleKeyDown = (e, index, todo) => {
+    if (e.key === "Enter") {
+      handleCheckbox(e, index, todo)
+    }
   }
 
   return (
@@ -103,8 +104,8 @@ function Todo() {
       todos.map((todo, index) => {
         return (
 
-          <label tabindex={0} for={`checkbox-${index}`} className='task-box'>
-            <input tabindex={-1} id={`checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} onKeyDown={(e) => handleKeyDown(e)} type="checkbox" />
+          <label onKeyDown={(e) => handleKeyDown(e, index, todo)} tabindex={0} for={`checkbox-${index}`} className='task-box'>
+            <input tabindex={-1} id={`checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" />
              <h1 className='checkbox-h1' id={`h1-${index}`}>{todo}</h1>
           </label>
          

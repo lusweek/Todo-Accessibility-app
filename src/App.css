@@ -260,6 +260,7 @@ width: 45%;
 
 #message{
   width: 100%;
+  text-decoration: none;
 }
 
 .error-message{
