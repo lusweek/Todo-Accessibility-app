@@ -123,6 +123,15 @@ margin-bottom: 10px;
   color: black;
 }
 
+.button{
+  background-color: #00FF0A;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 
 /* --------------------------------- TODO SECTION ----------------------------------- */
 
@@ -131,6 +140,10 @@ margin-bottom: 10px;
   flex-direction: column;
   text-align: start;
   margin: 30px 5px 5px 5px;
+}
+
+#todo-input{
+  height: 25px;
 }
 
 .new-todo-wrapper label{
@@ -188,20 +201,22 @@ iframe{
   margin: 30px 0;
 }
 
-.captions-wrapper{
-  height: 250px;
+#captions-wrapper{
+  height: 145px;
   border: solid 1px black;
   background-color: #F7F7F7;
   overflow: auto;
   padding: 40px;
   text-align: center;
+  resize: vertical;
 }
 
-.captions-wrapper p{
+#captions-wrapper p{
   margin: 5px;
+  text-align: start;
 }
 
-.captions-wrapper h2{
+#captions-wrapper h2{
   font-weight: 500;
   margin: 0 0 30px 0;
 }
@@ -256,6 +271,11 @@ color: white;
 padding: 3px 8px;
 margin-top: 2px; 
 display: none;
+}
+
+.drag-resize{
+  align-self: end;
+  margin-top: 3px;
 }
 
 
@@ -316,7 +336,7 @@ display: none;
     padding: 3vw;
   }
 
-  .captions-wrapper{
+  #captions-wrapper{
     padding: 10px;
   }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import blindfold_img from '../img/blindfolded-low-res.webp'
 import {HiExternalLink} from 'react-icons/hi'
+import {BsArrowUpRight} from 'react-icons/bs'
 
 function About({ setFormInfo }) {
 
@@ -9,9 +10,6 @@ function About({ setFormInfo }) {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
-
-  const [fail, setFail] = useState(true)
-
 
   useEffect(() => {
 
@@ -122,13 +120,17 @@ function About({ setFormInfo }) {
 
         document.getElementById('modal-btn').focus()
        
+        setFname('')
+        setSname('')
+        setEmail('')
+        setPhone('')
+        setMessage('')
 
       }
       
 })
 
   }, [])
-
 
   return (
    <section className='component-section'>
@@ -168,7 +170,7 @@ function About({ setFormInfo }) {
         
         <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="What every sighted person should know about blindness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <div className='captions-wrapper'>
+        <div id='captions-wrapper'>
 
           <h2>Videos captions</h2>
 
@@ -199,7 +201,7 @@ function About({ setFormInfo }) {
           
           </p>
         </div>
-
+        <p id='resize' className='drag-resize'>Drag to resize <BsArrowUpRight /> </p>
       </article>
 
       <div className='line'></div>
@@ -242,7 +244,7 @@ function About({ setFormInfo }) {
             <textarea name="message" id="message" cols="30" rows="10" onChange={(e) => setMessage(e.target.value)}></textarea>
             <div className='error-message' id='messageError'></div>
           </div>
-          <button type='submit'>Send</button>
+          <button className='button' type='submit'>Send</button>
         </form>
       </article>
 
