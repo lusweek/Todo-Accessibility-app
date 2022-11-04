@@ -115,6 +115,15 @@ function About({ setFormInfo }) {
       } else {
         MessageError.style.display='none'
       }
+
+      if (fail === false) {
+        e.preventDefault()
+        document.querySelector("#set-component").style.display="flex"
+
+        document.getElementById('modal-btn').focus()
+       
+
+      }
       
 })
 

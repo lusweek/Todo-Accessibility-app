@@ -4,6 +4,7 @@ import Todo from './Pages/Todo';
 import DoneTasks from './Pages/DoneTasks';
 import About from './Pages/About';
 import { useEffect, useState } from 'react';
+import MessageSent from './Components/MessageSent';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
 
   return (
     <>
+      <MessageSent />
       <nav id='navbar'>
           <Link onClick={leaveSight} id='homeLink' to="/" className='link-text link-btn nav-selected'>Todos</Link>
           <Link onClick={leaveSight} id='doneLink' to="/done" className='link-text link-btn'>Done Tasks</Link>

@@ -260,6 +260,49 @@ display: none;
 
 
 
+/* --------------------------------- MODAL ----------------------------- */
+
+#set-component{
+  display: none;
+}
+
+.modal-wrapper{
+ justify-content: center;
+ align-items: center;
+ width: 100vw;
+ height: 100vh;
+ position: fixed;
+ background-color: rgba(0, 0, 0, .4);
+}
+
+.modal-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vh 10vw;
+  background-color: antiquewhite;
+  border-radius: 5px;
+
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content button{
+    background-color: #00FF0A;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
 /* --------------------------------- FÖR TELEFON ----------------------------- */
 
 @media screen and (max-width: 480px) {
