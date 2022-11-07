@@ -5,7 +5,6 @@ import DoneTasks from './Pages/DoneTasks';
 import About from './Pages/About';
 import { useEffect, useState } from 'react';
 import MessageSent from './Components/MessageSent';
-import { useSearchParams } from "react-router-dom";
 
 function App() {
 
@@ -84,11 +83,6 @@ function App() {
     }
   }, [])
 
- 
-
-  // console.log(url);
-
-
 
   return (
     <>
@@ -100,7 +94,8 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path='/home' element={<Todo />} />
+        <Route path="/" element={<Todo />}> </Route>
+        <Route path="/home" element={<Todo />}> </Route>
         <Route path='/done' element={<DoneTasks />} />
         <Route path='/about' element={<About setFormInfo={setFormInfo} />} />
       </Routes>
