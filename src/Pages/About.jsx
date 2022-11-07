@@ -242,7 +242,7 @@ function About({ setFormInfo }) {
             </div>
             <div className='form-div'>
               <label htmlFor="phone">Phone number*</label>
-              <input type="number" id='phone' name='phone' onChange={(e) => setPhone(e.target.value)} />
+              <input type="tel" id='phone' name='phone' onChange={(e) => setPhone(e.target.value)} />
               <div className='error-message' id='phoneError'></div>
             </div>
          </div>

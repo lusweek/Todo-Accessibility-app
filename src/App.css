@@ -351,4 +351,12 @@ display: none;
     padding: 8px 13px;
   }
 
+  #navbar{
+    height: 60px;
+  }
+
+  .link-btn {
+    padding: 9px;
+  }
+
 }
