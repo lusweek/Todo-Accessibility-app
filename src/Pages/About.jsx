@@ -135,7 +135,7 @@ function About({ setFormInfo }) {
 
 
   useEffect(() => {
-    if (window.innerWidth < 480) {
+    if (window.innerWidth < 950) {
       document.querySelector('#resize').style.display="none"
     }
   }, [])
