@@ -342,8 +342,7 @@ display: none;
   }
 
   iframe{
-    width: 250px;
-    height: 145px;
+    width: 100%;
   }
 
   .button, #add-btn{
