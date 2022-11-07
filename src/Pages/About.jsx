@@ -132,6 +132,14 @@ function About({ setFormInfo }) {
 
   }, [])
 
+
+
+  useEffect(() => {
+    if (window.innerWidth < 480) {
+      document.querySelector('#resize').style.display="none"
+    }
+  }, [])
+
   return (
    <section className='component-section'>
       <header>
@@ -166,9 +174,9 @@ function About({ setFormInfo }) {
 
         <h2 className='h2-title'>What every sighted person should know about blindness</h2>
         
-        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch video on youtube < HiExternalLink /> </a>
+        <a className='margin-20' href="https://www.youtube.com/watch?v=F5z6fQE79mI">Watch with subtitles < HiExternalLink /> </a>
         
-        <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="What every sighted person should know about blindness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/F5z6fQE79mI" title="What every sighted person should know about blindness" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
         <div id='captions-wrapper'>
 
@@ -213,14 +221,14 @@ function About({ setFormInfo }) {
         <form id='form' className='contact-grid'>
           <div className='pair-wrapper'>
             <div className='form-div'>
-                <label for="Fname">First Name*</label>
+                <label htmlFor="Fname">First Name*</label>
                 <input type="text" id='Fname' name='Fname' onChange={(e) => setFname(e.target.value)} />
                 <div className='error-message' id='FnameError'></div>
               </div>
             
 
               <div className='form-div'>
-                <label for="Sname">Last Name*</label>
+                <label htmlFor="Sname">Last Name*</label>
                 <input type="text" id='Sname' name='Sname' onChange={(e) => setSname(e.target.value)} />
                 <div className='error-message' id='SnameError'></div>
               </div>
@@ -228,19 +236,19 @@ function About({ setFormInfo }) {
          
          <div className='pair-wrapper'>
             <div className='form-div'>
-              <label for="email">Email*</label>
+              <label htmlFor="email">Email*</label>
               <input type="email" id='email' name='email' onChange={(e) => setEmail(e.target.value)} />
               <div className='error-message' id='emailError'></div>
             </div>
             <div className='form-div'>
-              <label for="phone">Phone number*</label>
+              <label htmlFor="phone">Phone number*</label>
               <input type="number" id='phone' name='phone' onChange={(e) => setPhone(e.target.value)} />
               <div className='error-message' id='phoneError'></div>
             </div>
          </div>
           
           <div className='message-form-div'>
-            <label for="message">Message</label>
+            <label htmlFor="message">Message</label>
             <textarea name="message" id="message" cols="30" rows="10" onChange={(e) => setMessage(e.target.value)}></textarea>
             <div className='error-message' id='messageError'></div>
           </div>

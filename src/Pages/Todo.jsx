@@ -104,9 +104,9 @@ function Todo() {
       todos.map((todo, index) => {
         return (
 
-          <label onKeyDown={(e) => handleKeyDown(e, index, todo)} tabindex={0} for={`checkbox-${index}`} className='task-box'>
-            <input tabindex={-1} id={`checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" />
-             <h1 className='checkbox-h1' id={`h1-${index}`}>{todo}</h1>
+          <label key={Math.random()} onKeyDown={(e) => handleKeyDown(e, index, todo)} tabindex={0} htmlFor={`checkbox-${index}`} className='task-box'>
+            <input key={Math.random()} tabindex={-1} id={`checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" />
+             <h1 key={Math.random()} className='checkbox-h1' id={`h1-${index}`}>{todo}</h1>
           </label>
          
         )

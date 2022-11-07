@@ -72,9 +72,9 @@ function DoneTasks() {
       doneTodos.length===0 ? <h1>No done todos</h1> : 
       doneTodos.map((todo, index) => {
         return (
-          <label onKeyDown={(e) => handleKeyDown(e, index, todo)} tabindex={0} for={`done-checkbox-${index}`} className='task-box'>
-            <input tabindex={-1} id={`done-checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" checked />
-             <h1 className='checkbox-h1' id={`done-h1-${index}`}>{todo}</h1>
+          <label key={Math.random()} onKeyDown={(e) => handleKeyDown(e, index, todo)} tabIndex={0} htmlFor={`done-checkbox-${index}`} className='task-box'>
+            <input key={Math.random()} tabIndex={-1} id={`done-checkbox-${index}`} onClick={(e) => handleCheckbox(e, index, todo)} type="checkbox" checked />
+             <h1 key={Math.random()} className='checkbox-h1' id={`done-h1-${index}`}>{todo}</h1>
           </label>
          
         )

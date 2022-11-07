@@ -5,18 +5,22 @@ import DoneTasks from './Pages/DoneTasks';
 import About from './Pages/About';
 import { useEffect, useState } from 'react';
 import MessageSent from './Components/MessageSent';
+import { useSearchParams } from "react-router-dom";
 
 function App() {
 
   const [formInfo, setFormInfo] = useState(false)
 
   const leaveSight = (e) => {
+
     if (formInfo === true) {
       if (!window.confirm('Do you want to leave page? Form will not be saved')) {
         e.preventDefault()
         document.querySelector('#aboutLink').classList.add("nav-selected")
         document.querySelector('#doneLink').classList.remove("nav-selected")
         document.querySelector('#homeLink').classList.remove("nav-selected")
+      } else {
+        setFormInfo(false)
       }
     }
   }
@@ -60,17 +64,43 @@ function App() {
 
   }, [])
 
+ 
+// CHECK WHISH ROUTE IS ON
+
+  useEffect(() => {
+
+    const url = window.location.href
+  
+    const home = url.match('home') ? url.match('home').input : ''
+    const done = url.match('done') ? url.match('done').input : ''
+    const about = url.match('about') ? url.match('about').input : ''
+
+  if (done.match('done')) {
+      document.querySelector('#doneLink').classList.add("nav-selected")
+    } else if (about.match('about')) {
+      document.querySelector('#aboutLink').classList.add("nav-selected")
+    } else {
+      document.querySelector('#homeLink').classList.add("nav-selected")
+    }
+  }, [])
+
+ 
+
+  // console.log(url);
+
+
+
   return (
     <>
       <MessageSent />
       <nav id='navbar'>
-          <Link onClick={leaveSight} id='homeLink' to="/" className='link-text link-btn nav-selected'>Todos</Link>
+          <Link onClick={leaveSight} id='homeLink' to="/home" className='link-text link-btn'>Todos</Link>
           <Link onClick={leaveSight} id='doneLink' to="/done" className='link-text link-btn'>Done Tasks</Link>
           <Link id='aboutLink' to="/about" className='link-text link-btn'>About Accessibility</Link>          
       </nav>
 
       <Routes>
-        <Route path='/' element={<Todo />} />
+        <Route path='/home' element={<Todo />} />
         <Route path='/done' element={<DoneTasks />} />
         <Route path='/about' element={<About setFormInfo={setFormInfo} />} />
       </Routes>
